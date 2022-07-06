@@ -1,7 +1,7 @@
 #include "LedStrip.h"
 
 #define LIGHT_UPDATE 10.0; //time between light color updates
-const double Pulse_Interval = 2000; //length of pulse/rainbow from color on,off,on
+const double Pulse_Interval = 3000; //length of pulse/rainbow from color on,off,on
 
 #define BRIGHTNESS_MIN .01
 #define BRIGHTNESS_MAX .95
@@ -114,9 +114,11 @@ void LedStrip::update_pulse() {
 }
 
 double LedStrip::wave_rainbow(const double& offset) {
-    double wave = wave_gen(offset);
+    double wave = 127.5 * wave_gen(offset) + 127.5;
 
-    return 127.5 * wave+127.5;
+    if (wave <= 10) 
+        return 0;
+    return wave;
 }
 
 void LedStrip::update_rainbow() {
