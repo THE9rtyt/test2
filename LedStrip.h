@@ -33,10 +33,10 @@ typedef struct RGB {
 
 class LedStrip {
 public:
-    void init(rgb_t& pinNum);
-    void update(const uint32_t& current_time);
-    void next_color();
-    void next_mode();
+    void init(rgb_t& pinNum); //initialize LED Strip
+    void update(const uint32_t& current_time); //update the strip, provide the current time
+    void next_color(); // function to increment to the next color option(if in a mode that supports it)
+    void next_mode(); // function to increment to the next mode
 
 private:
     rgb_t pin, color;

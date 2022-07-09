@@ -114,11 +114,7 @@ void LedStrip::update_pulse() {
 }
 
 double LedStrip::wave_rainbow(const double& offset) {
-    double wave = 127.5 * wave_gen(offset) + 127.5;
-
-    if (wave <= 10) 
-        return 0;
-    return wave;
+    return 127 * wave_gen(offset) + 127.5;
 }
 
 void LedStrip::update_rainbow() {
